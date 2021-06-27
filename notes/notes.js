@@ -5,10 +5,10 @@ let a = document.getElementById("navigation");
 let firstChild = document.getElementById("firstSection")
 
 //change the paragraph ontents.
-paras[0].texContent= "I just changed you"
+paras[0].textContent= "I just changed you"
 paras[1].style.color = "red"
 mains[0].id = "homeContent"
-
+/*
 //create new element
 let newElement = document.createElement("section");
 
@@ -21,3 +21,4 @@ button.texContent = "Sign Up";
 firstChild.replaceChild(button, paras[1]);
 firstChild.removeChild(a);
 
+*/

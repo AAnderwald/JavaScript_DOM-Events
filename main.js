@@ -1,9 +1,18 @@
 /*----------- Exercise #1: SELECTING/MANIPULATING ELEMENTS -----------*/
 
 // Select Node #1 and change the text to: "I used the getElementById("node1") method to access this"
-// Select Node #2 and change the text to: "I used the getElementByClassName("node2") method to access this" */
-// Select ALL the h3 tags and change the text to: "I used the getElementByTagName("h3") method to access all of these" */
 
+document.getElementById ("node1").innerText = 'I used the getElementById ("node1") method to access this'
+
+// Select Node #2 and change the text to: "I used the getElementByClassName("node2") method to access this" */
+
+document.getElementsByClassName ("node2")[0].innerText = 'I used the getElementByClassName("node2") method to access this'
+
+// Select ALL the h3 tags and change the text to: "I used the getElementByTagName("h3") method to access all of these" */
+let h3Nodes = document.getElementsByTagName("h3");
+for  (let node of h3Nodes) {
+   node.innerText = 'I used the getElementByTagName("h3") method to access all of these'
+}
 /*----------- Exercise #2: CREATING/APPENDING/INSERTING ELEMENTS/OBJECTS -----------*/
 
 // TODO: Create a paragraph element using this element.createElement() and put this text inside "This node was created using the createElement() method"
