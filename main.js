@@ -63,20 +63,35 @@ exercise3.removeChild(N1); */
 // TODO: Write your JavaScript here to make the red box go from right to left
 // BONUS - Make the red box go all the way around the perimeter of the green box */
 
-let timer = setInterval(move, 100);
-let boxPosition = 0;
+//this is how I did it. Below is how he did it
+let time = setInterval(move, 100);
+let boxPosition = 0;                         //this is where it starts 0 left side
 
-let box = document.getElementById("box");
+let boxs = document.getElementById("boxs");   //he used offsetwidth so if things change it should not matter
 function move () {
-   if (boxPosition >=150) { 
+   if (boxPosition >=150) {               
       clearInterval(timer);
    } else {
       boxPosition +=1;
-      box.style.left = boxPosition + "px";
+      boxs.style.left = boxPosition + "px";   //px is pixels
    } 
 }
 
+//his way
+let box = document.getElementById("box"); 
+let container = document.getElementById ("container");
+let posX = 1;  
 
+let moveInterval = setInterval(moveBox, 100);
+
+function moveBox () {
+   if (posX <= container.offsetWidth - box.offsetWidth) {
+      box.style.left = posX + "px";
+      posX++;                          //after so it doesn't go to 151position
+   } else {
+      clearInterval(moveInterval);
+   }
+}
 
 /* this actually makes it jump down and move diagonally bottom-left to upper-right, not what I wanted
 let timer = setInterval(move, 100);
@@ -134,10 +149,17 @@ function move () {
 
 function show(){
    let modal = document.createElement ("div");
+   modal.style.zIndex = 10;
+   modal.style.position = "fixed";
+   modal.style.background = "red";
+   modal.style.left = 0;
+   modal.style.top = 0;
+   modal.style.width = "100%";
+   modal.style.height = "100%";
    let modalP = document.createElement ("p");
    let modalBtn= document.createElement ("button");
 
-   modalP.textContent = "Clicking the button triggers the onclick event, which calls the JS function show()... which alerts the user";
+   modalP.textContent = "Clicking the button triggers the onclick event, which calls the JS function show ()... which alerts the user";
    modal.appendChild(modalP);
    document.body.appendChild(modal);
 }
@@ -147,7 +169,7 @@ btn.addEventListener("click", show);
 
 /* this just bring s up an alert
 function show(){
-      alert ('Clicking the button triggers the onclick event, which calls the JS function show()... which alerts the user');
+      alert ('Clicking the button triggers the onclick event, which calls the JS function show ()... which alerts the user');
 }
 */
 
