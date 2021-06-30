@@ -151,16 +151,21 @@ function show(){
    let modal = document.createElement ("div");
    modal.style.zIndex = 10;
    modal.style.position = "fixed";
-   modal.style.background = "red";
    modal.style.left = 0;
    modal.style.top = 0;
    modal.style.width = "100%";
    modal.style.height = "100%";
+   modal.style.background = "red";
    let modalP = document.createElement ("p");
    let modalBtn= document.createElement ("button");
+   modalBtn.addEventListener("click", function(){
+      document.body.removeChild(modal);
+   });
 
-   modalP.textContent = "Clicking the button triggers the onclick event, which calls the JS function show ()... which alerts the user";
-   modal.appendChild(modalP);
+   modalP.textContent = 
+      "Clicking the button triggers the onclick event, which calls the JS function show ()... which alerts the user";
+      modal.appendChild(modalBtn);
+      modal.appendChild(modalP);
    document.body.appendChild(modal);
 }
 
